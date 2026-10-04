@@ -1,26 +1,18 @@
-"use client";
-
-import { useState } from "react";
-
-export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const skills = [
+const skills = {
+  "CI/CD & Source Control": [
     "Jenkins",
     "Git",
     "GitHub",
     "Maven",
     "SonarQube",
     "Nexus",
+  ],
+  Containers: [
     "Docker",
-    "AWS",
-    "Linux",
-    "Bash",
-    "SQL",
-    "Networking",
-  ];
-
-  const awsServices = [
+    "Docker Hub",
+    "Container Networking",
+  ],
+  "AWS Cloud": [
     "EC2",
     "VPC",
     "S3",
@@ -32,409 +24,363 @@ export default function Home() {
     "Route 53",
     "CloudFront",
     "Lambda",
-    "CloudWatch",
-    "SNS",
-  ];
+  ],
+  "Monitoring & Alerting": [
+    "Amazon CloudWatch",
+    "Amazon SNS",
+  ],
+  "Linux & Networking": [
+    "Linux Administration",
+    "TCP/IP",
+    "DNS",
+    "HTTP/HTTPS",
+    "Load Balancing",
+    "Subnetting",
+    "CIDR",
+    "NAT",
+  ],
+  "Scripting & Databases": [
+    "Bash",
+    "Shell Scripting",
+    "SQL",
+    "Amazon RDS",
+    "Apache Tomcat",
+  ],
+};
 
-  const projects = [
-    {
-      number: "01",
-      title: "S3 Event-Driven Alarm & Notification System",
-      description:
-        "Replaced manual log monitoring with automated incident detection by configuring CloudWatch alarms across S3 activity and error thresholds. Integrated Amazon SNS to deliver real-time alerts on alarm state changes.",
-      technologies: ["Amazon S3", "CloudWatch", "SNS"],
-    },
-    {
-      number: "02",
-      title: "CI/CD Deployment Automation for Java Web Application",
-      description:
-        "Designed an end-to-end Jenkins CI/CD pipeline for a Java web application. Configured GitHub webhooks to trigger builds automatically and integrated Maven for consistent build, test and packaging workflows.",
-      technologies: ["Git", "GitHub", "Jenkins", "Maven", "Docker"],
-    },
-    {
-      number: "03",
-      title: "Dockerized Web Application Deployment",
-      description:
-        "Containerized a web application, created and versioned Docker images, published them to Docker Hub, configured container networking and deployed the application on an AWS EC2 instance.",
-      technologies: ["Docker", "Docker Hub", "Linux", "AWS EC2"],
-    },
-  ];
+const projects = [
+  {
+    title: "S3 Event-Driven Alarm & Notification System",
+    technologies: ["Amazon S3", "CloudWatch", "SNS"],
+    description:
+      "Built an automated monitoring and notification solution using Amazon S3, CloudWatch and SNS to detect issues and deliver real-time alerts.",
+    points: [
+      "Configured CloudWatch alarms across S3 activity and error thresholds.",
+      "Integrated Amazon SNS for real-time alarm notifications.",
+      "Replaced manual monitoring with automated incident detection.",
+    ],
+  },
+  {
+    title: "CI/CD Deployment Automation for Java Web Application",
+    technologies: ["Git", "GitHub", "Jenkins", "Maven", "Docker"],
+    description:
+      "Designed an end-to-end Jenkins CI/CD pipeline to automate the journey from source-code commit to application deployment.",
+    points: [
+      "Configured GitHub webhooks to automatically trigger Jenkins builds.",
+      "Automated Maven build, test and packaging stages.",
+      "Integrated Docker into the deployment workflow.",
+      "Reduced manual intervention during application releases.",
+    ],
+  },
+  {
+    title: "Dockerized Web Application Deployment",
+    technologies: ["Docker", "Docker Hub", "Linux", "AWS EC2"],
+    description:
+      "Containerized a web application, published versioned Docker images and deployed the application on AWS EC2.",
+    points: [
+      "Built and versioned custom Docker images.",
+      "Published Docker images to Docker Hub.",
+      "Configured Docker container networking.",
+      "Deployed and operated the application on AWS EC2.",
+      "Used Linux commands for configuration and troubleshooting.",
+    ],
+  },
+];
 
+const experience = [
+  "Engineered Jenkins CI/CD pipelines covering build, test and deployment stages using Maven, SonarQube and Nexus.",
+  "Containerized applications with Docker and standardized deployment workflows.",
+  "Provisioned and administered AWS services including EC2, VPC, IAM, S3 and Lambda.",
+  "Implemented CloudWatch and SNS monitoring and alerting for infrastructure and application issues.",
+  "Automated recurring operational and deployment tasks using Bash/Shell scripting.",
+  "Applied Linux administration and networking fundamentals including DNS, HTTP/HTTPS and load balancing.",
+];
+
+export default function Home() {
   return (
-    <main>
-      {/* ================= NAVBAR ================= */}
+    <main className="min-h-screen bg-slate-950 text-white">
 
-      <nav className="navbar">
-        <div className="nav-container">
+      {/* NAVBAR */}
+      <nav className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/95 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 
-          <a href="#home" className="logo">
-            S<span>K</span>.
+          <a
+            href="#"
+            className="text-xl font-bold tracking-wide"
+          >
+            SURENDRA<span className="text-cyan-400">.</span>
           </a>
 
-          <button
-            className="menu-button"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            ☰
-          </button>
-
-          <div className={`nav-links ${menuOpen ? "active" : ""}`}>
-            <a href="#home" onClick={() => setMenuOpen(false)}>
-              Home
-            </a>
-
-            <a href="#about" onClick={() => setMenuOpen(false)}>
+          <div className="hidden gap-6 text-sm text-slate-300 md:flex">
+            <a href="#about" className="hover:text-cyan-400">
               About
             </a>
 
-            <a href="#skills" onClick={() => setMenuOpen(false)}>
+            <a href="#skills" className="hover:text-cyan-400">
               Skills
             </a>
 
-            <a href="#experience" onClick={() => setMenuOpen(false)}>
+            <a href="#experience" className="hover:text-cyan-400">
               Experience
             </a>
 
-            <a href="#projects" onClick={() => setMenuOpen(false)}>
+            <a href="#projects" className="hover:text-cyan-400">
               Projects
             </a>
 
-            <a href="#education" onClick={() => setMenuOpen(false)}>
+            <a href="#education" className="hover:text-cyan-400">
               Education
             </a>
 
-            <a href="#contact" onClick={() => setMenuOpen(false)}>
+            <a href="#contact" className="hover:text-cyan-400">
               Contact
             </a>
           </div>
+
         </div>
       </nav>
 
-      {/* ================= HERO ================= */}
+      {/* HERO */}
+      <section className="border-b border-slate-800">
+        <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
 
-      <section id="home" className="hero">
+          <div className="max-w-4xl">
 
-        <div className="hero-container">
-
-          <div className="hero-content">
-
-            <div className="hero-label">
-              DEVOPS ENGINEER INTERN
-            </div>
-
-            <h1>
-              Surendra
-              <br />
-              <span>Somisetty</span>
-            </h1>
-
-            <h2>
-              CI/CD • AWS • Docker • Jenkins • Linux
-            </h2>
-
-            <p className="hero-description">
-              Computer Science graduate specializing in Cybersecurity,
-              IoT & Blockchain Technology, with hands-on experience
-              building CI/CD pipelines, containerizing applications,
-              managing AWS infrastructure and implementing monitoring
-              and automation workflows.
+            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
+              DevOps Engineer Intern
             </p>
 
-            <div className="hero-buttons">
+            <h1 className="text-5xl font-extrabold tracking-tight md:text-7xl">
+              Somisetty
+              <br />
+              <span className="text-cyan-400">
+                Venkata Surendra Kumar
+              </span>
+            </h1>
+
+            <p className="mt-6 text-xl font-medium text-slate-300">
+              CI/CD • Jenkins • Docker • AWS • Linux
+            </p>
+
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-400">
+              Computer Science graduate specializing in Cybersecurity,
+              IoT & Blockchain Technology, with hands-on DevOps experience
+              in CI/CD automation, Docker containerization, AWS infrastructure,
+              monitoring and Linux administration.
+            </p>
+
+            {/* BUTTONS */}
+
+            <div className="mt-8 flex flex-wrap gap-4">
 
               <a
-                href="/Surendra_Resume_DevOps.pdf"
-                download
-                className="primary-button"
+                href="#projects"
+                className="rounded-lg bg-cyan-400 px-6 py-3 font-bold text-slate-950 hover:bg-cyan-300"
+              >
+                View Projects
+              </a>
+
+              <a
+                href="/resume.pdf"
+                download="Surendra_Resume_DevOps_Improved-1.pdf"
+                className="rounded-lg border border-slate-700 px-6 py-3 font-semibold hover:border-cyan-400 hover:text-cyan-400"
               >
                 Download Resume
               </a>
 
               <a
-                href="https://www.linkedin.com/in/somisetty-venkata-surendra-kumar/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="secondary-button"
-              >
-                LinkedIn ↗
-              </a>
-
-            </div>
-
-            <div className="hero-social">
-
-              <a
                 href="https://github.com/surendra-kumar-07"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="rounded-lg border border-slate-700 px-6 py-3 font-semibold hover:border-cyan-400 hover:text-cyan-400"
               >
                 GitHub
               </a>
 
-              <span>/</span>
-
               <a
-                href="https://www.linkedin.com/in/somisetty-venkata-surendra-kumar/"
+                href="https://www.linkedin.com/in/somisetty-venkata-surendra-kumar-48b086320/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="rounded-lg border border-slate-700 px-6 py-3 font-semibold hover:border-cyan-400 hover:text-cyan-400"
               >
                 LinkedIn
               </a>
 
-              <span>/</span>
-
-              <a href="mailto:surendrasomisetty18@gmail.com">
-                Email
-              </a>
-
             </div>
 
           </div>
+        </div>
+      </section>
 
-          {/* TERMINAL */}
+      {/* QUICK STATS */}
 
-          <div className="terminal-wrapper">
+      <section className="border-b border-slate-800 bg-slate-900/40">
+        <div className="mx-auto grid max-w-7xl gap-6 px-6 py-10 sm:grid-cols-2 md:grid-cols-4">
 
-            <div className="terminal">
+          <div>
+            <p className="text-3xl font-bold text-cyan-400">
+              AWS
+            </p>
+            <p className="mt-1 text-sm text-slate-400">
+              Cloud Infrastructure
+            </p>
+          </div>
 
-              <div className="terminal-header">
+          <div>
+            <p className="text-3xl font-bold text-cyan-400">
+              CI/CD
+            </p>
+            <p className="mt-1 text-sm text-slate-400">
+              Jenkins Automation
+            </p>
+          </div>
 
-                <div className="terminal-dots">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
+          <div>
+            <p className="text-3xl font-bold text-cyan-400">
+              Docker
+            </p>
+            <p className="mt-1 text-sm text-slate-400">
+              Containerization
+            </p>
+          </div>
 
-                <div className="terminal-title">
-                  surendra@devops:~
-                </div>
-
-              </div>
-
-              <div className="terminal-content">
-
-                <div>
-                  <span className="prompt">$</span> whoami
-                </div>
-
-                <div className="terminal-output">
-                  surendra-somisetty
-                </div>
-
-                <div>
-                  <span className="prompt">$</span> role
-                </div>
-
-                <div className="terminal-output">
-                  DevOps Engineer Intern
-                </div>
-
-                <div>
-                  <span className="prompt">$</span> cloud
-                </div>
-
-                <div className="terminal-output">
-                  AWS
-                </div>
-
-                <div>
-                  <span className="prompt">$</span> tools
-                </div>
-
-                <div className="terminal-output">
-                  Jenkins Docker Git Linux
-                </div>
-
-                <div>
-                  <span className="prompt">$</span> status
-                </div>
-
-                <div className="terminal-success">
-                  ● Open to DevOps opportunities
-                </div>
-
-              </div>
-
-            </div>
-
+          <div>
+            <p className="text-3xl font-bold text-cyan-400">
+              8.2
+            </p>
+            <p className="mt-1 text-sm text-slate-400">
+              CGPA
+            </p>
           </div>
 
         </div>
-
       </section>
 
-      {/* ================= ABOUT ================= */}
+      {/* ABOUT */}
 
-      <section id="about" className="section">
+      <section id="about">
+        <div className="mx-auto max-w-7xl px-6 py-20">
 
-        <div className="container">
+          <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">
+            About Me
+          </p>
 
-          <div className="section-heading">
-            <span>01 — ABOUT</span>
-            <h2>Building reliable<br />deployment workflows.</h2>
-          </div>
+          <h2 className="mt-3 text-3xl font-bold md:text-4xl">
+            Cloud & DevOps focused engineer
+          </h2>
 
-          <div className="about-grid">
+          <p className="mt-6 max-w-4xl text-lg leading-8 text-slate-400">
+            Computer Science graduate with hands-on DevOps internship
+            experience building and supporting CI/CD pipelines using Git,
+            GitHub, Jenkins, Maven, SonarQube and Nexus.
+          </p>
 
-            <div className="about-text">
-
-              <p className="about-large">
-                I am a Computer Science graduate with hands-on
-                DevOps experience focused on CI/CD automation,
-                containerization and AWS infrastructure.
-              </p>
-
-              <p>
-                During my DevOps internship, I worked with Git,
-                GitHub, Jenkins, Maven, SonarQube, Nexus, Docker,
-                AWS, Linux and Bash scripting to build and support
-                automated deployment workflows.
-              </p>
-
-              <p>
-                I enjoy solving infrastructure problems, automating
-                repetitive tasks and improving the reliability of
-                application deployment and monitoring.
-              </p>
-
-            </div>
-
-            <div className="about-stats">
-
-              <div className="stat">
-                <strong>CI/CD</strong>
-                <span>Automation</span>
-              </div>
-
-              <div className="stat">
-                <strong>AWS</strong>
-                <span>Cloud Infrastructure</span>
-              </div>
-
-              <div className="stat">
-                <strong>Docker</strong>
-                <span>Containerization</span>
-              </div>
-
-              <div className="stat">
-                <strong>Linux</strong>
-                <span>Administration</span>
-              </div>
-
-            </div>
-
-          </div>
+          <p className="mt-5 max-w-4xl text-lg leading-8 text-slate-400">
+            Experienced in containerizing applications with Docker and
+            managing AWS infrastructure including EC2, VPC, IAM, S3 and
+            Lambda. I also work with CloudWatch and SNS for monitoring,
+            Bash/Shell scripting for automation, and Linux administration.
+          </p>
 
         </div>
-
       </section>
 
-      {/* ================= SKILLS ================= */}
+      {/* SKILLS */}
 
-      <section id="skills" className="section dark-section">
+      <section
+        id="skills"
+        className="border-y border-slate-800 bg-slate-900/40"
+      >
+        <div className="mx-auto max-w-7xl px-6 py-20">
 
-        <div className="container">
+          <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">
+            Technical Skills
+          </p>
 
-          <div className="section-heading">
-            <span>02 — SKILLS</span>
-            <h2>Tools & technologies.</h2>
-          </div>
+          <h2 className="mt-3 text-3xl font-bold md:text-4xl">
+            Technologies I Work With
+          </h2>
 
-          <div className="skills-grid">
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
-            {skills.map((skill) => (
-              <div className="skill-card" key={skill}>
+            {Object.entries(skills).map(([category, items]) => (
 
-                <span className="skill-arrow">
-                  →
-                </span>
+              <div
+                key={category}
+                className="rounded-2xl border border-slate-800 bg-slate-950 p-6"
+              >
 
-                <span>
-                  {skill}
-                </span>
+                <h3 className="text-lg font-bold">
+                  {category}
+                </h3>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+
+                  {items.map((item) => (
+
+                    <span
+                      key={item}
+                      className="rounded-md bg-slate-800 px-3 py-2 text-sm text-slate-300"
+                    >
+                      {item}
+                    </span>
+
+                  ))}
+
+                </div>
 
               </div>
+
             ))}
 
           </div>
 
-          <div className="aws-section">
-
-            <h3>AWS SERVICES</h3>
-
-            <div className="aws-list">
-
-              {awsServices.map((service) => (
-                <span key={service}>
-                  {service}
-                </span>
-              ))}
-
-            </div>
-
-          </div>
-
         </div>
-
       </section>
 
-      {/* ================= EXPERIENCE ================= */}
+      {/* EXPERIENCE */}
 
-      <section id="experience" className="section">
+      <section id="experience">
 
-        <div className="container">
+        <div className="mx-auto max-w-7xl px-6 py-20">
 
-          <div className="section-heading">
-            <span>03 — EXPERIENCE</span>
-            <h2>Where I've worked.</h2>
-          </div>
+          <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">
+            Experience
+          </p>
 
-          <div className="experience-card">
+          <h2 className="mt-3 text-3xl font-bold md:text-4xl">
+            DevOps Engineer Intern
+          </h2>
 
-            <div className="experience-left">
+          <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900/50 p-7">
 
-              <span className="experience-date">
-                FEB 2026 — PRESENT
-              </span>
+            <div className="flex flex-col justify-between gap-2 md:flex-row">
 
-              <h3>
-                DevOps Engineer Intern
+              <h3 className="text-xl font-bold">
+                Q Spiders
               </h3>
 
-              <h4>
-                Q Spiders
-              </h4>
+              <span className="text-slate-400">
+                Feb 2026 – Present
+              </span>
 
             </div>
 
-            <div className="experience-right">
+            <p className="mt-4 text-slate-400">
+              Git • GitHub • Jenkins • Maven • SonarQube • Nexus • Docker •
+              AWS • CloudWatch • SNS • Linux • Bash
+            </p>
 
-              <p>
-                Engineered end-to-end Jenkins CI/CD pipelines
-                covering build, test and deployment stages,
-                integrating Maven, SonarQube quality gates and
-                Nexus artifact storage.
-              </p>
+            <ul className="mt-6 space-y-4 text-slate-300">
 
-              <p>
-                Containerized applications using Docker and
-                standardized deployment workflows to reduce
-                manual release steps and improve rollout speed.
-              </p>
+              {experience.map((item) => (
+                <li key={item}>
+                  <span className="text-cyan-400">•</span>{" "}
+                  {item}
+                </li>
+              ))}
 
-              <p>
-                Provisioned and administered AWS services including
-                EC2, VPC, IAM, S3 and Lambda for repeatable
-                infrastructure deployments.
-              </p>
-
-              <p>
-                Implemented CloudWatch and SNS monitoring and
-                automated operational tasks using Bash/Shell
-                scripting.
-              </p>
-
-            </div>
+            </ul>
 
           </div>
 
@@ -442,56 +388,78 @@ export default function Home() {
 
       </section>
 
-      {/* ================= PROJECTS ================= */}
+      {/* PROJECTS */}
 
-      <section id="projects" className="section dark-section">
+      <section
+        id="projects"
+        className="border-y border-slate-800 bg-slate-900/40"
+      >
 
-        <div className="container">
+        <div className="mx-auto max-w-7xl px-6 py-20">
 
-          <div className="section-heading">
-            <span>04 — PROJECTS</span>
-            <h2>Things I've built.</h2>
-          </div>
+          <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">
+            Projects
+          </p>
 
-          <div className="projects">
+          <h2 className="mt-3 text-3xl font-bold md:text-4xl">
+            Featured DevOps Projects
+          </h2>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
 
             {projects.map((project) => (
 
               <article
-                className="project-card"
-                key={project.number}
+                key={project.title}
+                className="flex flex-col rounded-2xl border border-slate-800 bg-slate-950 p-7 transition hover:-translate-y-1 hover:border-cyan-400"
               >
 
-                <div className="project-number">
-                  {project.number}
-                </div>
+                <h3 className="text-xl font-bold">
+                  {project.title}
+                </h3>
 
-                <div className="project-content">
+                <div className="mt-4 flex flex-wrap gap-2">
 
-                  <h3>
-                    {project.title}
-                  </h3>
+                  {project.technologies.map((technology) => (
 
-                  <p>
-                    {project.description}
-                  </p>
+                    <span
+                      key={technology}
+                      className="rounded-full bg-cyan-400/10 px-3 py-1 text-xs text-cyan-300"
+                    >
+                      {technology}
+                    </span>
 
-                  <div className="project-tech">
-
-                    {project.technologies.map(
-                      (technology) => (
-                        <span key={technology}>
-                          {technology}
-                        </span>
-                      )
-                    )}
-
-                  </div>
+                  ))}
 
                 </div>
 
-                <div className="project-arrow">
-                  ↗
+                <p className="mt-5 leading-7 text-slate-400">
+                  {project.description}
+                </p>
+
+                <ul className="mt-5 space-y-3 text-sm leading-6 text-slate-300">
+
+                  {project.points.map((point) => (
+
+                    <li key={point}>
+                      ✓ {point}
+                    </li>
+
+                  ))}
+
+                </ul>
+
+                <div className="mt-auto pt-7">
+
+                  <a
+                    href="https://github.com/surendra-kumar-07"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-semibold text-cyan-400 hover:text-cyan-300"
+                  >
+                    View GitHub →
+                  </a>
+
                 </div>
 
               </article>
@@ -504,138 +472,125 @@ export default function Home() {
 
       </section>
 
-      {/* ================= EDUCATION ================= */}
+      {/* EDUCATION */}
 
-      <section id="education" className="section">
+      <section id="education">
 
-        <div className="container">
+        <div className="mx-auto max-w-7xl px-6 py-20">
 
-          <div className="section-heading">
-            <span>05 — EDUCATION</span>
-            <h2>Academic background.</h2>
-          </div>
+          <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">
+            Education
+          </p>
 
-          <div className="education-card">
+          <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900/50 p-7">
 
-            <div className="education-year">
-              2026
-            </div>
+            <div className="flex flex-col justify-between gap-2 md:flex-row">
 
-            <div>
-
-              <h3>
-                Bachelor of Technology
+              <h3 className="text-xl font-bold">
+                Bachelor of Technology in Computer Science and Engineering
               </h3>
 
-              <h4>
-                Computer Science & Engineering
-              </h4>
+              <span className="text-slate-400">
+                2026
+              </span>
 
-              <p>
-                Siddharth Institute of Engineering and Technology
-              </p>
+            </div>
 
-              <p>
-                Specialization: Cybersecurity, IoT &
-                Blockchain Technology
-              </p>
+            <p className="mt-3 text-slate-300">
+              Siddharth Institute of Engineering and Technology
+            </p>
 
-              <div className="cgpa">
-                CGPA <strong>8.2</strong>
+            <p className="mt-2 text-slate-400">
+              Specialization: Cybersecurity, IoT & Blockchain Technology
+            </p>
+
+            <p className="mt-2 font-semibold text-cyan-400">
+              CGPA: 8.2
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* CERTIFICATIONS + ACHIEVEMENT */}
+
+      <section className="border-y border-slate-800 bg-slate-900/40">
+
+        <div className="mx-auto grid max-w-7xl gap-6 px-6 py-20 md:grid-cols-2">
+
+          {/* CERTIFICATIONS */}
+
+          <div>
+
+            <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">
+              Certifications
+            </p>
+
+            <div className="mt-6 space-y-4">
+
+              <div className="rounded-xl border border-slate-800 bg-slate-950 p-5">
+                <p className="font-semibold">
+                  AWS Certified Cloud Practitioner
+                </p>
+
+                <p className="mt-1 text-sm text-slate-500">
+                  In progress
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-slate-800 bg-slate-950 p-5">
+                <p className="font-semibold">
+                  SQL (Basic)
+                </p>
+
+                <p className="mt-1 text-sm text-slate-500">
+                  HackerRank
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-slate-800 bg-slate-950 p-5">
+                <p className="font-semibold">
+                  Operating System Fundamentals
+                </p>
+
+                <p className="mt-1 text-sm text-slate-500">
+                  NPTEL
+                </p>
               </div>
 
             </div>
 
           </div>
 
-        </div>
+          {/* ACHIEVEMENT */}
 
-      </section>
+          <div>
 
-      {/* ================= CERTIFICATIONS ================= */}
+            <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">
+              Achievement
+            </p>
 
-      <section className="section certification-section">
+            <div className="mt-6 rounded-xl border border-slate-800 bg-slate-950 p-6">
 
-        <div className="container">
-
-          <div className="section-heading">
-            <span>06 — CERTIFICATIONS</span>
-            <h2>Continuous learning.</h2>
-          </div>
-
-          <div className="certification-grid">
-
-            <div className="cert-card">
-              <span>01</span>
-              <h3>
-                AWS Certified Cloud Practitioner
-              </h3>
-              <p>
-                In progress
-              </p>
-            </div>
-
-            <div className="cert-card">
-              <span>02</span>
-              <h3>
-                SQL (Basic)
-              </h3>
-              <p>
-                HackerRank
-              </p>
-            </div>
-
-            <div className="cert-card">
-              <span>03</span>
-              <h3>
-                Operating System Fundamentals
-              </h3>
-              <p>
-                NPTEL
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* ================= ACHIEVEMENT ================= */}
-
-      <section className="section achievement-section">
-
-        <div className="container">
-
-          <div className="achievement">
-
-            <div className="achievement-icon">
-              ★
-            </div>
-
-            <div>
-
-              <span>
-                ACHIEVEMENT
-              </span>
-
-              <h2>
-                Best Paper Award — ICICC 2026
-              </h2>
-
-              <p>
-                HealthGuard: A Collaborative Machine Learning
-                Approach to Secure Medical Information Across
-                IoT-Driven Healthcare Systems.
+              <p className="text-xl font-bold">
+                🏆 Best Paper Award — ICICC-2026
               </p>
 
-              <a
-                href="https://link.springer.com/chapter/10.1007/978-3-032-30008-9_35"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Published Research ↗
-              </a>
+              <p className="mt-4 leading-7 text-slate-400">
+                Awarded for the research paper:
+              </p>
+
+              <p className="mt-3 leading-7 text-slate-300">
+                “HealthGuard: A Collaborative Machine Learning Approach
+                to Secure Medical Information Across IoT-Driven
+                Healthcare Systems.”
+              </p>
+
+              <p className="mt-5 text-sm text-slate-500">
+                Published research paper through Springer.
+              </p>
 
             </div>
 
@@ -645,47 +600,57 @@ export default function Home() {
 
       </section>
 
-      {/* ================= CONTACT ================= */}
+      {/* CONTACT */}
 
-      <section id="contact" className="contact">
+      <section id="contact">
 
-        <div className="container contact-container">
+        <div className="mx-auto max-w-7xl px-6 py-20 text-center">
 
-          <span className="contact-label">
-            07 — CONTACT
-          </span>
-
-          <h2>
-            Let's build something
-            <span> reliable.</span>
-          </h2>
-
-          <p>
-            I am looking for opportunities to grow as a
-            DevOps / Platform Engineer and contribute to
-            real-world cloud and automation projects.
+          <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">
+            Contact
           </p>
 
-          <div className="contact-links">
+          <h2 className="mt-3 text-4xl font-bold">
+            Let&apos;s connect
+          </h2>
 
-            <a href="mailto:surendrasomisetty18@gmail.com">
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-400">
+            Open to DevOps, Cloud and Platform engineering opportunities.
+          </p>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+
+            <a
+              href="mailto:surendrasomisetty18@gmail.com"
+              className="rounded-lg bg-cyan-400 px-6 py-3 font-bold text-slate-950 hover:bg-cyan-300"
+            >
               Email Me
             </a>
 
             <a
-              href="https://www.linkedin.com/in/somisetty-venkata-surendra-kumar/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/resume.pdf"
+              download="Somisetty-Venkata-Surendra-Kumar-Resume.pdf"
+              className="rounded-lg border border-slate-700 px-6 py-3 font-semibold hover:border-cyan-400 hover:text-cyan-400"
             >
-              LinkedIn ↗
+              Download Resume
             </a>
 
             <a
               href="https://github.com/surendra-kumar-07"
               target="_blank"
               rel="noopener noreferrer"
+              className="rounded-lg border border-slate-700 px-6 py-3 font-semibold hover:border-cyan-400 hover:text-cyan-400"
             >
-              GitHub ↗
+              GitHub
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/somisetty-venkata-surendra-kumar-48b086320/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg border border-slate-700 px-6 py-3 font-semibold hover:border-cyan-400 hover:text-cyan-400"
+            >
+              LinkedIn
             </a>
 
           </div>
@@ -694,17 +659,13 @@ export default function Home() {
 
       </section>
 
-      {/* ================= FOOTER ================= */}
+      {/* FOOTER */}
 
-      <footer>
+      <footer className="border-t border-slate-800 py-8 text-center text-sm text-slate-500">
 
-        <div>
-          © 2026 Surendra Somisetty
-        </div>
-
-        <div>
-          DevOps • AWS • CI/CD
-        </div>
+        © 2026 Somisetty Venkata Surendra Kumar
+        {" "}•{" "}
+        Cloud & DevOps Portfolio
 
       </footer>
 
