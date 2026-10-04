@@ -1,676 +1,444 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-const skills = {
-  "CI/CD & Source Control": [
-    "Jenkins",
-    "Git",
-    "GitHub",
-    "Maven",
-    "SonarQube",
-    "Nexus",
-  ],
-  Containers: [
-    "Docker",
-    "Docker Hub",
-    "Container Networking",
-  ],
-  "AWS Cloud": [
-    "EC2",
-    "VPC",
-    "S3",
-    "EBS",
-    "RDS",
-    "IAM",
-    "Elastic Load Balancing",
-    "Auto Scaling",
-    "Route 53",
-    "CloudFront",
-    "Lambda",
-  ],
-  "Monitoring & Alerting": [
-    "Amazon CloudWatch",
-    "Amazon SNS",
-  ],
-  "Linux & Networking": [
-    "Linux Administration",
-    "TCP/IP",
-    "DNS",
-    "HTTP/HTTPS",
-    "Load Balancing",
-    "Subnetting",
-    "CIDR",
-    "NAT",
-  ],
-  "Scripting & Databases": [
-    "Bash",
-    "Shell Scripting",
-    "SQL",
-    "Amazon RDS",
-    "Apache Tomcat",
-  ],
-};
+    <title>Surendra Kumar | DevOps Engineer</title>
 
-const projects = [
-  {
-    title: "S3 Event-Driven Alarm & Notification System",
-    technologies: ["Amazon S3", "CloudWatch", "SNS"],
-    description:
-      "Built an automated monitoring and notification solution using Amazon S3, CloudWatch and SNS to detect issues and deliver real-time alerts.",
-    points: [
-      "Configured CloudWatch alarms across S3 activity and error thresholds.",
-      "Integrated Amazon SNS for real-time alarm notifications.",
-      "Replaced manual monitoring with automated incident detection.",
-    ],
-  },
-  {
-    title: "CI/CD Deployment Automation for Java Web Application",
-    technologies: ["Git", "GitHub", "Jenkins", "Maven", "Docker"],
-    description:
-      "Designed an end-to-end Jenkins CI/CD pipeline to automate the journey from source-code commit to application deployment.",
-    points: [
-      "Configured GitHub webhooks to automatically trigger Jenkins builds.",
-      "Automated Maven build, test and packaging stages.",
-      "Integrated Docker into the deployment workflow.",
-      "Reduced manual intervention during application releases.",
-    ],
-  },
-  {
-    title: "Dockerized Web Application Deployment",
-    technologies: ["Docker", "Docker Hub", "Linux", "AWS EC2"],
-    description:
-      "Containerized a web application, published versioned Docker images and deployed the application on AWS EC2.",
-    points: [
-      "Built and versioned custom Docker images.",
-      "Published Docker images to Docker Hub.",
-      "Configured Docker container networking.",
-      "Deployed and operated the application on AWS EC2.",
-      "Used Linux commands for configuration and troubleshooting.",
-    ],
-  },
-];
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-const experience = [
-  "Engineered Jenkins CI/CD pipelines covering build, test and deployment stages using Maven, SonarQube and Nexus.",
-  "Containerized applications with Docker and standardized deployment workflows.",
-  "Provisioned and administered AWS services including EC2, VPC, IAM, S3 and Lambda.",
-  "Implemented CloudWatch and SNS monitoring and alerting for infrastructure and application issues.",
-  "Automated recurring operational and deployment tasks using Bash/Shell scripting.",
-  "Applied Linux administration and networking fundamentals including DNS, HTTP/HTTPS and load balancing.",
-];
+        body {
+            background: #0f172a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
 
-export default function Home() {
-  return (
-    <main className="min-h-screen bg-slate-950 text-white">
+        header {
+            background: #020617;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-      {/* NAVBAR */}
-      <nav className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        header h2 {
+            color: #38bdf8;
+        }
 
-          <a
-            href="#"
-            className="text-xl font-bold tracking-wide"
-          >
-            SURENDRA<span className="text-cyan-400">.</span>
-          </a>
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: 0.3s;
+        }
 
-          <div className="hidden gap-6 text-sm text-slate-300 md:flex">
-            <a href="#about" className="hover:text-cyan-400">
-              About
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #cbd5e1;
+            max-width: 700px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            margin: 8px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .resume-btn {
+            background: #38bdf8;
+            color: #020617;
+        }
+
+        .linkedin-btn {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 40px;
+            color: #38bdf8;
+        }
+
+        .about {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            color: #cbd5e1;
+            font-size: 18px;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .skill {
+            background: #1e293b;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+        }
+
+        .project h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #cbd5e1;
+        }
+
+        .education {
+            max-width: 800px;
+            margin: auto;
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .education h3 {
+            color: #38bdf8;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            margin: 10px 0;
+            color: #cbd5e1;
+        }
+
+        .contact a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        footer {
+            background: #020617;
+            text-align: center;
+            padding: 25px;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <h2>Surendra Kumar</h2>
+
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <h1>Hi, I'm <span>Surendra Kumar</span></h1>
+
+        <p>
+            B.Tech Computer Science and Engineering (Cyber Security) graduate
+            aspiring to build a career as a Cloud & DevOps Engineer.
+        </p>
+
+        <div class="buttons">
+
+            <!-- Resume Download -->
+            <a
+                href="Surendra_Resume_DevOps_Improved-1(4).pdf"
+                download="Surendra_DevOps_Resume.pdf"
+                class="btn resume-btn">
+                📄 Download Resume
             </a>
 
-            <a href="#skills" className="hover:text-cyan-400">
-              Skills
-            </a>
-
-            <a href="#experience" className="hover:text-cyan-400">
-              Experience
-            </a>
-
-            <a href="#projects" className="hover:text-cyan-400">
-              Projects
-            </a>
-
-            <a href="#education" className="hover:text-cyan-400">
-              Education
-            </a>
-
-            <a href="#contact" className="hover:text-cyan-400">
-              Contact
-            </a>
-          </div>
-
-        </div>
-      </nav>
-
-      {/* HERO */}
-      <section className="border-b border-slate-800">
-        <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
-
-          <div className="max-w-4xl">
-
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
-              DevOps Engineer Intern
-            </p>
-
-            <h1 className="text-5xl font-extrabold tracking-tight md:text-7xl">
-              Somisetty
-              <br />
-              <span className="text-cyan-400">
-                Venkata Surendra Kumar
-              </span>
-            </h1>
-
-            <p className="mt-6 text-xl font-medium text-slate-300">
-              CI/CD • Jenkins • Docker • AWS • Linux
-            </p>
-
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-400">
-              Computer Science graduate specializing in Cybersecurity,
-              IoT & Blockchain Technology, with hands-on DevOps experience
-              in CI/CD automation, Docker containerization, AWS infrastructure,
-              monitoring and Linux administration.
-            </p>
-
-            {/* BUTTONS */}
-
-            <div className="mt-8 flex flex-wrap gap-4">
-
-              <a
-                href="#projects"
-                className="rounded-lg bg-cyan-400 px-6 py-3 font-bold text-slate-950 hover:bg-cyan-300"
-              >
-                View Projects
-              </a>
-              <a 
-              href="Surendra_Resume_DevOps_Improved-1(4).pdf"
-              download="Surendra_DevOps_Resume.pdf">
-             <button>Download Resume</button>
-             </a>
-
-     
-                Download Resume
-              </a>
-
-              <a
-                href="https://github.com/surendra-kumar-07"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-lg border border-slate-700 px-6 py-3 font-semibold hover:border-cyan-400 hover:text-cyan-400"
-              >
-                GitHub
-              </a>
-
-              <a
+            <!-- LinkedIn -->
+            <a
                 href="https://www.linkedin.com/in/somisetty-venkata-surendra-kumar-48b086320/"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-lg border border-slate-700 px-6 py-3 font-semibold hover:border-cyan-400 hover:text-cyan-400"
-              >
+                class="btn linkedin-btn">
                 LinkedIn
-              </a>
-
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* QUICK STATS */}
-
-      <section className="border-b border-slate-800 bg-slate-900/40">
-        <div className="mx-auto grid max-w-7xl gap-6 px-6 py-10 sm:grid-cols-2 md:grid-cols-4">
-
-          <div>
-            <p className="text-3xl font-bold text-cyan-400">
-              AWS
-            </p>
-            <p className="mt-1 text-sm text-slate-400">
-              Cloud Infrastructure
-            </p>
-          </div>
-
-          <div>
-            <p className="text-3xl font-bold text-cyan-400">
-              CI/CD
-            </p>
-            <p className="mt-1 text-sm text-slate-400">
-              Jenkins Automation
-            </p>
-          </div>
-
-          <div>
-            <p className="text-3xl font-bold text-cyan-400">
-              Docker
-            </p>
-            <p className="mt-1 text-sm text-slate-400">
-              Containerization
-            </p>
-          </div>
-
-          <div>
-            <p className="text-3xl font-bold text-cyan-400">
-              8.2
-            </p>
-            <p className="mt-1 text-sm text-slate-400">
-              CGPA
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ABOUT */}
-
-      <section id="about">
-        <div className="mx-auto max-w-7xl px-6 py-20">
-
-          <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">
-            About Me
-          </p>
-
-          <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-            Cloud & DevOps focused engineer
-          </h2>
-
-          <p className="mt-6 max-w-4xl text-lg leading-8 text-slate-400">
-            Computer Science graduate with hands-on DevOps internship
-            experience building and supporting CI/CD pipelines using Git,
-            GitHub, Jenkins, Maven, SonarQube and Nexus.
-          </p>
-
-          <p className="mt-5 max-w-4xl text-lg leading-8 text-slate-400">
-            Experienced in containerizing applications with Docker and
-            managing AWS infrastructure including EC2, VPC, IAM, S3 and
-            Lambda. I also work with CloudWatch and SNS for monitoring,
-            Bash/Shell scripting for automation, and Linux administration.
-          </p>
-
-        </div>
-      </section>
-
-      {/* SKILLS */}
-
-      <section
-        id="skills"
-        className="border-y border-slate-800 bg-slate-900/40"
-      >
-        <div className="mx-auto max-w-7xl px-6 py-20">
-
-          <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">
-            Technical Skills
-          </p>
-
-          <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-            Technologies I Work With
-          </h2>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-
-            {Object.entries(skills).map(([category, items]) => (
-
-              <div
-                key={category}
-                className="rounded-2xl border border-slate-800 bg-slate-950 p-6"
-              >
-
-                <h3 className="text-lg font-bold">
-                  {category}
-                </h3>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-
-                  {items.map((item) => (
-
-                    <span
-                      key={item}
-                      className="rounded-md bg-slate-800 px-3 py-2 text-sm text-slate-300"
-                    >
-                      {item}
-                    </span>
-
-                  ))}
-
-                </div>
-
-              </div>
-
-            ))}
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* EXPERIENCE */}
-
-      <section id="experience">
-
-        <div className="mx-auto max-w-7xl px-6 py-20">
-
-          <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">
-            Experience
-          </p>
-
-          <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-            DevOps Engineer Intern
-          </h2>
-
-          <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900/50 p-7">
-
-            <div className="flex flex-col justify-between gap-2 md:flex-row">
-
-              <h3 className="text-xl font-bold">
-                Q Spiders
-              </h3>
-
-              <span className="text-slate-400">
-                Feb 2026 – Present
-              </span>
-
-            </div>
-
-            <p className="mt-4 text-slate-400">
-              Git • GitHub • Jenkins • Maven • SonarQube • Nexus • Docker •
-              AWS • CloudWatch • SNS • Linux • Bash
-            </p>
-
-            <ul className="mt-6 space-y-4 text-slate-300">
-
-              {experience.map((item) => (
-                <li key={item}>
-                  <span className="text-cyan-400">•</span>{" "}
-                  {item}
-                </li>
-              ))}
-
-            </ul>
-
-          </div>
+            </a>
 
         </div>
 
-      </section>
+    </section>
 
-      {/* PROJECTS */}
 
-      <section
-        id="projects"
-        className="border-y border-slate-800 bg-slate-900/40"
-      >
+    <!-- About -->
+    <section id="about">
 
-        <div className="mx-auto max-w-7xl px-6 py-20">
+        <h2 class="section-title">About Me</h2>
 
-          <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">
-            Projects
-          </p>
+        <div class="about">
+            <p>
+                I am a Computer Science and Engineering graduate specializing
+                in Cyber Security and currently developing my skills in
+                Cloud Computing and DevOps.
+            </p>
 
-          <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-            Featured DevOps Projects
-          </h2>
+            <p>
+                I have hands-on experience with AWS, Linux, Git, GitHub,
+                Jenkins, Docker, Terraform, Maven, Shell Scripting,
+                SQL and Python.
+            </p>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            <p>
+                I am looking for an entry-level Cloud / DevOps opportunity
+                where I can apply my technical skills and continue learning
+                real-world cloud and automation technologies.
+            </p>
+        </div>
 
-            {projects.map((project) => (
+    </section>
 
-              <article
-                key={project.title}
-                className="flex flex-col rounded-2xl border border-slate-800 bg-slate-950 p-7 transition hover:-translate-y-1 hover:border-cyan-400"
-              >
 
-                <h3 className="text-xl font-bold">
-                  {project.title}
-                </h3>
+    <!-- Skills -->
+    <section id="skills">
 
-                <div className="mt-4 flex flex-wrap gap-2">
+        <h2 class="section-title">Technical Skills</h2>
 
-                  {project.technologies.map((technology) => (
+        <div class="skills">
 
-                    <span
-                      key={technology}
-                      className="rounded-full bg-cyan-400/10 px-3 py-1 text-xs text-cyan-300"
-                    >
-                      {technology}
-                    </span>
+            <div class="skill">AWS</div>
+            <div class="skill">Linux</div>
+            <div class="skill">Git</div>
+            <div class="skill">GitHub</div>
+            <div class="skill">Shell Scripting</div>
+            <div class="skill">Jenkins</div>
+            <div class="skill">Docker</div>
+            <div class="skill">Terraform</div>
+            <div class="skill">Maven</div>
+            <div class="skill">SQL</div>
+            <div class="skill">Python</div>
+            <div class="skill">Networking</div>
 
-                  ))}
+        </div>
 
-                </div>
+    </section>
 
-                <p className="mt-5 leading-7 text-slate-400">
-                  {project.description}
+
+    <!-- Projects -->
+    <section id="projects">
+
+        <h2 class="section-title">Projects</h2>
+
+        <div class="projects">
+
+            <div class="project">
+                <h3>S3 Static Website Hosting</h3>
+
+                <p>
+                    Hosted a static website using Amazon S3 with bucket
+                    policies and IAM least-privilege access.
                 </p>
+            </div>
 
-                <ul className="mt-5 space-y-3 text-sm leading-6 text-slate-300">
 
-                  {project.points.map((point) => (
+            <div class="project">
+                <h3>Serverless Image Compression Pipeline</h3>
 
-                    <li key={point}>
-                      ✓ {point}
-                    </li>
+                <p>
+                    Built an AWS Lambda-based image compression pipeline
+                    using Python, Pillow and Amazon S3 event triggers.
+                </p>
+            </div>
 
-                  ))}
 
-                </ul>
+            <div class="project">
+                <h3>S3 Event-Driven Alarm System</h3>
 
-                <div className="mt-auto pt-7">
+                <p>
+                    Created an event-driven monitoring system using S3,
+                    CloudWatch and SNS for automated notifications.
+                </p>
+            </div>
 
-                  <a
+
+            <div class="project">
+                <h3>Docker Web Application</h3>
+
+                <p>
+                    Containerized a web application using Docker and
+                    created Dockerfiles for building and running the
+                    application in a containerized environment.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Education -->
+    <section id="education">
+
+        <h2 class="section-title">Education</h2>
+
+        <div class="education">
+
+            <h3>B.Tech in Computer Science and Engineering</h3>
+
+            <p>
+                Specialization: Cyber Security
+            </p>
+
+            <p>
+                Siddharth Institute of Engineering and Technology
+            </p>
+
+            <p>
+                2026 | GPA: 8.2
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact">
+
+        <h2 class="section-title">Contact Me</h2>
+
+        <div class="contact">
+
+            <p>
+                📧 Email:
+                <a href="mailto:your-email@example.com">
+                    your-email@example.com
+                </a>
+            </p>
+
+            <p>
+                💼 LinkedIn:
+                <a
+                    href="https://www.linkedin.com/in/somisetty-venkata-surendra-kumar-48b086320/"
+                    target="_blank">
+                    View LinkedIn Profile
+                </a>
+            </p>
+
+            <p>
+                💻 GitHub:
+                <a
                     href="https://github.com/surendra-kumar-07"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-semibold text-cyan-400 hover:text-cyan-300"
-                  >
-                    View GitHub →
-                  </a>
-
-                </div>
-
-              </article>
-
-            ))}
-
-          </div>
+                    target="_blank">
+                    github.com/surendra-kumar-07
+                </a>
+            </p>
 
         </div>
 
-      </section>
+    </section>
 
-      {/* EDUCATION */}
 
-      <section id="education">
+    <!-- Footer -->
+    <footer>
+        <p>
+            © 2026 Surendra Kumar | Cloud & DevOps Engineer
+        </p>
+    </footer>
 
-        <div className="mx-auto max-w-7xl px-6 py-20">
+</body>
+</html>
+```
 
-          <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">
-            Education
-          </p>
-
-          <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900/50 p-7">
-
-            <div className="flex flex-col justify-between gap-2 md:flex-row">
-
-              <h3 className="text-xl font-bold">
-                Bachelor of Technology in Computer Science and Engineering
-              </h3>
-
-              <span className="text-slate-400">
-                2026
-              </span>
-
-            </div>
-
-            <p className="mt-3 text-slate-300">
-              Siddharth Institute of Engineering and Technology
-            </p>
-
-            <p className="mt-2 text-slate-400">
-              Specialization: Cybersecurity, IoT & Blockchain Technology
-            </p>
-
-            <p className="mt-2 font-semibold text-cyan-400">
-              CGPA: 8.2
-            </p>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* CERTIFICATIONS + ACHIEVEMENT */}
-
-      <section className="border-y border-slate-800 bg-slate-900/40">
-
-        <div className="mx-auto grid max-w-7xl gap-6 px-6 py-20 md:grid-cols-2">
-
-          {/* CERTIFICATIONS */}
-
-          <div>
-
-            <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">
-              Certifications
-            </p>
-
-            <div className="mt-6 space-y-4">
-
-              <div className="rounded-xl border border-slate-800 bg-slate-950 p-5">
-                <p className="font-semibold">
-                  AWS Certified Cloud Practitioner
-                </p>
-
-                <p className="mt-1 text-sm text-slate-500">
-                  In progress
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-slate-800 bg-slate-950 p-5">
-                <p className="font-semibold">
-                  SQL (Basic)
-                </p>
-
-                <p className="mt-1 text-sm text-slate-500">
-                  HackerRank
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-slate-800 bg-slate-950 p-5">
-                <p className="font-semibold">
-                  Operating System Fundamentals
-                </p>
-
-                <p className="mt-1 text-sm text-slate-500">
-                  NPTEL
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
-          {/* ACHIEVEMENT */}
-
-          <div>
-
-            <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">
-              Achievement
-            </p>
-
-            <div className="mt-6 rounded-xl border border-slate-800 bg-slate-950 p-6">
-
-              <p className="text-xl font-bold">
-                🏆 Best Paper Award — ICICC-2026
-              </p>
-
-              <p className="mt-4 leading-7 text-slate-400">
-                Awarded for the research paper:
-              </p>
-
-              <p className="mt-3 leading-7 text-slate-300">
-                “HealthGuard: A Collaborative Machine Learning Approach
-                to Secure Medical Information Across IoT-Driven
-                Healthcare Systems.”
-              </p>
-
-              <p className="mt-5 text-sm text-slate-500">
-                Published research paper through Springer.
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* CONTACT */}
-
-      <section id="contact">
-
-        <div className="mx-auto max-w-7xl px-6 py-20 text-center">
-
-          <p className="text-sm font-bold uppercase tracking-widest text-cyan-400">
-            Contact
-          </p>
-
-          <h2 className="mt-3 text-4xl font-bold">
-            Let&apos;s connect
-          </h2>
-
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-400">
-            Open to DevOps, Cloud and Platform engineering opportunities.
-          </p>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-
-            <a
-              href="mailto:surendrasomisetty18@gmail.com"
-              className="rounded-lg bg-cyan-400 px-6 py-3 font-bold text-slate-950 hover:bg-cyan-300"
-            >
-              Email Me
-            </a>
-
-            <a
-              href="/resume.pdf"
-              download="Somisetty-Venkata-Surendra-Kumar-Resume.pdf"
-              className="rounded-lg border border-slate-700 px-6 py-3 font-semibold hover:border-cyan-400 hover:text-cyan-400"
-            >
-              Download Resume
-            </a>
-
-            <a
-              href="https://github.com/surendra-kumar-07"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-slate-700 px-6 py-3 font-semibold hover:border-cyan-400 hover:text-cyan-400"
-            >
-              GitHub
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/somisetty-venkata-surendra-kumar-48b086320/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-slate-700 px-6 py-3 font-semibold hover:border-cyan-400 hover:text-cyan-400"
-            >
-              LinkedIn
-            </a>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* FOOTER */}
-
-      <footer className="border-t border-slate-800 py-8 text-center text-sm text-slate-500">
-
-        © 2026 Somisetty Venkata Surendra Kumar
-        {" "}•{" "}
-        Cloud & DevOps Portfolio
-
-      </footer>
-
-    </main>
-  );
-}
