@@ -1,324 +1,713 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const skills = [
+    "Jenkins",
+    "Git",
+    "GitHub",
+    "Maven",
+    "SonarQube",
+    "Nexus",
+    "Docker",
+    "AWS",
+    "Linux",
+    "Bash",
+    "SQL",
+    "Networking",
+  ];
+
+  const awsServices = [
+    "EC2",
+    "VPC",
+    "S3",
+    "EBS",
+    "RDS",
+    "IAM",
+    "Elastic Load Balancing",
+    "Auto Scaling",
+    "Route 53",
+    "CloudFront",
+    "Lambda",
+    "CloudWatch",
+    "SNS",
+  ];
+
+  const projects = [
+    {
+      number: "01",
+      title: "S3 Event-Driven Alarm & Notification System",
+      description:
+        "Replaced manual log monitoring with automated incident detection by configuring CloudWatch alarms across S3 activity and error thresholds. Integrated Amazon SNS to deliver real-time alerts on alarm state changes.",
+      technologies: ["Amazon S3", "CloudWatch", "SNS"],
+    },
+    {
+      number: "02",
+      title: "CI/CD Deployment Automation for Java Web Application",
+      description:
+        "Designed an end-to-end Jenkins CI/CD pipeline for a Java web application. Configured GitHub webhooks to trigger builds automatically and integrated Maven for consistent build, test and packaging workflows.",
+      technologies: ["Git", "GitHub", "Jenkins", "Maven", "Docker"],
+    },
+    {
+      number: "03",
+      title: "Dockerized Web Application Deployment",
+      description:
+        "Containerized a web application, created and versioned Docker images, published them to Docker Hub, configured container networking and deployed the application on an AWS EC2 instance.",
+      technologies: ["Docker", "Docker Hub", "Linux", "AWS EC2"],
+    },
+  ];
+
   return (
     <main>
-      <section>
-        <h1>Somisetty Venkata Surendra Kumar</h1>
+      {/* ================= NAVBAR ================= */}
 
-        <h2>
-          DevOps Engineer Intern | CI/CD • Jenkins • Docker • AWS • Linux
-        </h2>
+      <nav className="navbar">
+        <div className="nav-container">
 
-        <p>
-          Bengaluru, India | +91-7095690017 |
-          surendrasomisetty18@gmail.com
-        </p>
-
-        <div>
-          <a
-            href="/Surendra_Resume_DevOps_Improved-1(5).pdf"
-            download
-          >
-            📄 Download Resume
+          <a href="#home" className="logo">
+            S<span>K</span>.
           </a>
 
-          <a
-            href="https://www.linkedin.com/in/somisetty-venkata-surendra-kumar-48b086320/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            className="menu-button"
+            onClick={() => setMenuOpen(!menuOpen)}
           >
-            LinkedIn
-          </a>
+            ☰
+          </button>
 
-          <a
-            href="https://github.com/surendra-kumar-07"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
+          <div className={`nav-links ${menuOpen ? "active" : ""}`}>
+            <a href="#home" onClick={() => setMenuOpen(false)}>
+              Home
+            </a>
+
+            <a href="#about" onClick={() => setMenuOpen(false)}>
+              About
+            </a>
+
+            <a href="#skills" onClick={() => setMenuOpen(false)}>
+              Skills
+            </a>
+
+            <a href="#experience" onClick={() => setMenuOpen(false)}>
+              Experience
+            </a>
+
+            <a href="#projects" onClick={() => setMenuOpen(false)}>
+              Projects
+            </a>
+
+            <a href="#education" onClick={() => setMenuOpen(false)}>
+              Education
+            </a>
+
+            <a href="#contact" onClick={() => setMenuOpen(false)}>
+              Contact
+            </a>
+          </div>
         </div>
+      </nav>
+
+      {/* ================= HERO ================= */}
+
+      <section id="home" className="hero">
+
+        <div className="hero-container">
+
+          <div className="hero-content">
+
+            <div className="hero-label">
+              DEVOPS ENGINEER INTERN
+            </div>
+
+            <h1>
+              Surendra
+              <br />
+              <span>Somisetty</span>
+            </h1>
+
+            <h2>
+              CI/CD • AWS • Docker • Jenkins • Linux
+            </h2>
+
+            <p className="hero-description">
+              Computer Science graduate specializing in Cybersecurity,
+              IoT & Blockchain Technology, with hands-on experience
+              building CI/CD pipelines, containerizing applications,
+              managing AWS infrastructure and implementing monitoring
+              and automation workflows.
+            </p>
+
+            <div className="hero-buttons">
+
+              <a
+                href="/Surendra_Resume_DevOps.pdf"
+                download
+                className="primary-button"
+              >
+                Download Resume
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/somisetty-venkata-surendra-kumar/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="secondary-button"
+              >
+                LinkedIn ↗
+              </a>
+
+            </div>
+
+            <div className="hero-social">
+
+              <a
+                href="https://github.com/surendra-kumar-07"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+
+              <span>/</span>
+
+              <a
+                href="https://www.linkedin.com/in/somisetty-venkata-surendra-kumar/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+
+              <span>/</span>
+
+              <a href="mailto:surendrasomisetty18@gmail.com">
+                Email
+              </a>
+
+            </div>
+
+          </div>
+
+          {/* TERMINAL */}
+
+          <div className="terminal-wrapper">
+
+            <div className="terminal">
+
+              <div className="terminal-header">
+
+                <div className="terminal-dots">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <div className="terminal-title">
+                  surendra@devops:~
+                </div>
+
+              </div>
+
+              <div className="terminal-content">
+
+                <div>
+                  <span className="prompt">$</span> whoami
+                </div>
+
+                <div className="terminal-output">
+                  surendra-somisetty
+                </div>
+
+                <div>
+                  <span className="prompt">$</span> role
+                </div>
+
+                <div className="terminal-output">
+                  DevOps Engineer Intern
+                </div>
+
+                <div>
+                  <span className="prompt">$</span> cloud
+                </div>
+
+                <div className="terminal-output">
+                  AWS
+                </div>
+
+                <div>
+                  <span className="prompt">$</span> tools
+                </div>
+
+                <div className="terminal-output">
+                  Jenkins Docker Git Linux
+                </div>
+
+                <div>
+                  <span className="prompt">$</span> status
+                </div>
+
+                <div className="terminal-success">
+                  ● Open to DevOps opportunities
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </section>
 
-      <section>
-        <h2>Professional Summary</h2>
+      {/* ================= ABOUT ================= */}
 
-        <p>
-          Computer Science graduate (Cybersecurity, IoT & Blockchain)
-          with hands-on DevOps internship experience building and
-          supporting CI/CD pipelines using Git, GitHub, Jenkins, Maven,
-          SonarQube and Nexus.
-        </p>
+      <section id="about" className="section">
 
-        <p>
-          Experienced in containerizing applications with Docker and
-          managing AWS infrastructure including EC2, VPC, IAM, S3
-          and Lambda.
-        </p>
+        <div className="container">
 
-        <p>
-          Implemented CloudWatch/SNS monitoring and automated deployment
-          workflows with Bash to reduce manual release effort.
-        </p>
+          <div className="section-heading">
+            <span>01 — ABOUT</span>
+            <h2>Building reliable<br />deployment workflows.</h2>
+          </div>
 
-        <p>
-          Strong foundation in Linux administration and core networking
-          including HTTP, DNS and load balancing.
-        </p>
+          <div className="about-grid">
+
+            <div className="about-text">
+
+              <p className="about-large">
+                I am a Computer Science graduate with hands-on
+                DevOps experience focused on CI/CD automation,
+                containerization and AWS infrastructure.
+              </p>
+
+              <p>
+                During my DevOps internship, I worked with Git,
+                GitHub, Jenkins, Maven, SonarQube, Nexus, Docker,
+                AWS, Linux and Bash scripting to build and support
+                automated deployment workflows.
+              </p>
+
+              <p>
+                I enjoy solving infrastructure problems, automating
+                repetitive tasks and improving the reliability of
+                application deployment and monitoring.
+              </p>
+
+            </div>
+
+            <div className="about-stats">
+
+              <div className="stat">
+                <strong>CI/CD</strong>
+                <span>Automation</span>
+              </div>
+
+              <div className="stat">
+                <strong>AWS</strong>
+                <span>Cloud Infrastructure</span>
+              </div>
+
+              <div className="stat">
+                <strong>Docker</strong>
+                <span>Containerization</span>
+              </div>
+
+              <div className="stat">
+                <strong>Linux</strong>
+                <span>Administration</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </section>
 
-      <section>
-        <h2>Technical Skills</h2>
+      {/* ================= SKILLS ================= */}
 
-        <h3>CI/CD & Source Control</h3>
-        <p>
-          Jenkins, Git, GitHub, Maven, SonarQube, Nexus
-        </p>
+      <section id="skills" className="section dark-section">
 
-        <h3>Containers</h3>
-        <p>
-          Docker, Image Builds, Container Networking, Docker Hub
-        </p>
+        <div className="container">
 
-        <h3>Cloud — AWS</h3>
-        <p>
-          EC2, VPC, S3, EBS, RDS, IAM, Elastic Load Balancing,
-          Auto Scaling, Route 53, CloudFront, Lambda
-        </p>
+          <div className="section-heading">
+            <span>02 — SKILLS</span>
+            <h2>Tools & technologies.</h2>
+          </div>
 
-        <h3>Monitoring & Alerting</h3>
-        <p>
-          Amazon CloudWatch, Amazon SNS
-        </p>
+          <div className="skills-grid">
 
-        <h3>Scripting & Automation</h3>
-        <p>
-          Bash / Shell Scripting
-        </p>
+            {skills.map((skill) => (
+              <div className="skill-card" key={skill}>
 
-        <h3>Linux & Networking</h3>
-        <p>
-          Linux Administration, Permissions, Processes, File Systems,
-          TCP/IP, DNS, HTTP/HTTPS, Load Balancing, Subnetting,
-          CIDR, NAT
-        </p>
+                <span className="skill-arrow">
+                  →
+                </span>
 
-        <h3>Hosting & Databases</h3>
-        <p>
-          Apache Tomcat, SQL, Amazon RDS
-        </p>
+                <span>
+                  {skill}
+                </span>
+
+              </div>
+            ))}
+
+          </div>
+
+          <div className="aws-section">
+
+            <h3>AWS SERVICES</h3>
+
+            <div className="aws-list">
+
+              {awsServices.map((service) => (
+                <span key={service}>
+                  {service}
+                </span>
+              ))}
+
+            </div>
+
+          </div>
+
+        </div>
+
       </section>
 
-      <section>
-        <h2>Internship Experience</h2>
+      {/* ================= EXPERIENCE ================= */}
 
-        <h3>DevOps Engineer Intern — Q Spiders</h3>
+      <section id="experience" className="section">
 
-        <p>Feb 2026 – Present</p>
+        <div className="container">
 
-        <ul>
-          <li>
-            Engineered end-to-end Jenkins CI/CD pipelines covering
-            build, test and deployment stages.
-          </li>
+          <div className="section-heading">
+            <span>03 — EXPERIENCE</span>
+            <h2>Where I've worked.</h2>
+          </div>
 
-          <li>
-            Integrated Maven builds, SonarQube quality gates and
-            Nexus artifact storage.
-          </li>
+          <div className="experience-card">
 
-          <li>
-            Containerized applications using Docker and standardized
-            deployment workflows.
-          </li>
+            <div className="experience-left">
 
-          <li>
-            Worked with AWS EC2, VPC, IAM, S3 and Lambda.
-          </li>
+              <span className="experience-date">
+                FEB 2026 — PRESENT
+              </span>
 
-          <li>
-            Implemented monitoring and alerting using CloudWatch
-            and SNS.
-          </li>
+              <h3>
+                DevOps Engineer Intern
+              </h3>
 
-          <li>
-            Automated operational and deployment tasks using
-            Bash/Shell scripting.
-          </li>
-        </ul>
+              <h4>
+                Q Spiders
+              </h4>
+
+            </div>
+
+            <div className="experience-right">
+
+              <p>
+                Engineered end-to-end Jenkins CI/CD pipelines
+                covering build, test and deployment stages,
+                integrating Maven, SonarQube quality gates and
+                Nexus artifact storage.
+              </p>
+
+              <p>
+                Containerized applications using Docker and
+                standardized deployment workflows to reduce
+                manual release steps and improve rollout speed.
+              </p>
+
+              <p>
+                Provisioned and administered AWS services including
+                EC2, VPC, IAM, S3 and Lambda for repeatable
+                infrastructure deployments.
+              </p>
+
+              <p>
+                Implemented CloudWatch and SNS monitoring and
+                automated operational tasks using Bash/Shell
+                scripting.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </section>
 
-      <section>
-        <h2>Projects</h2>
+      {/* ================= PROJECTS ================= */}
 
-        <article>
-          <h3>S3 Event-Driven Alarm & Notification System</h3>
+      <section id="projects" className="section dark-section">
+
+        <div className="container">
+
+          <div className="section-heading">
+            <span>04 — PROJECTS</span>
+            <h2>Things I've built.</h2>
+          </div>
+
+          <div className="projects">
+
+            {projects.map((project) => (
+
+              <article
+                className="project-card"
+                key={project.number}
+              >
+
+                <div className="project-number">
+                  {project.number}
+                </div>
+
+                <div className="project-content">
+
+                  <h3>
+                    {project.title}
+                  </h3>
+
+                  <p>
+                    {project.description}
+                  </p>
+
+                  <div className="project-tech">
+
+                    {project.technologies.map(
+                      (technology) => (
+                        <span key={technology}>
+                          {technology}
+                        </span>
+                      )
+                    )}
+
+                  </div>
+
+                </div>
+
+                <div className="project-arrow">
+                  ↗
+                </div>
+
+              </article>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* ================= EDUCATION ================= */}
+
+      <section id="education" className="section">
+
+        <div className="container">
+
+          <div className="section-heading">
+            <span>05 — EDUCATION</span>
+            <h2>Academic background.</h2>
+          </div>
+
+          <div className="education-card">
+
+            <div className="education-year">
+              2026
+            </div>
+
+            <div>
+
+              <h3>
+                Bachelor of Technology
+              </h3>
+
+              <h4>
+                Computer Science & Engineering
+              </h4>
+
+              <p>
+                Siddharth Institute of Engineering and Technology
+              </p>
+
+              <p>
+                Specialization: Cybersecurity, IoT &
+                Blockchain Technology
+              </p>
+
+              <div className="cgpa">
+                CGPA <strong>8.2</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* ================= CERTIFICATIONS ================= */}
+
+      <section className="section certification-section">
+
+        <div className="container">
+
+          <div className="section-heading">
+            <span>06 — CERTIFICATIONS</span>
+            <h2>Continuous learning.</h2>
+          </div>
+
+          <div className="certification-grid">
+
+            <div className="cert-card">
+              <span>01</span>
+              <h3>
+                AWS Certified Cloud Practitioner
+              </h3>
+              <p>
+                In progress
+              </p>
+            </div>
+
+            <div className="cert-card">
+              <span>02</span>
+              <h3>
+                SQL (Basic)
+              </h3>
+              <p>
+                HackerRank
+              </p>
+            </div>
+
+            <div className="cert-card">
+              <span>03</span>
+              <h3>
+                Operating System Fundamentals
+              </h3>
+              <p>
+                NPTEL
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* ================= ACHIEVEMENT ================= */}
+
+      <section className="section achievement-section">
+
+        <div className="container">
+
+          <div className="achievement">
+
+            <div className="achievement-icon">
+              ★
+            </div>
+
+            <div>
+
+              <span>
+                ACHIEVEMENT
+              </span>
+
+              <h2>
+                Best Paper Award — ICICC 2026
+              </h2>
+
+              <p>
+                HealthGuard: A Collaborative Machine Learning
+                Approach to Secure Medical Information Across
+                IoT-Driven Healthcare Systems.
+              </p>
+
+              <a
+                href="https://link.springer.com/chapter/10.1007/978-3-032-30008-9_35"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Published Research ↗
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* ================= CONTACT ================= */}
+
+      <section id="contact" className="contact">
+
+        <div className="container contact-container">
+
+          <span className="contact-label">
+            07 — CONTACT
+          </span>
+
+          <h2>
+            Let's build something
+            <span> reliable.</span>
+          </h2>
 
           <p>
-            Amazon S3 • Amazon CloudWatch • Amazon SNS
+            I am looking for opportunities to grow as a
+            DevOps / Platform Engineer and contribute to
+            real-world cloud and automation projects.
           </p>
 
-          <ul>
-            <li>
-              Automated incident detection using CloudWatch alarms
-              across S3 activity and error thresholds.
-            </li>
+          <div className="contact-links">
 
-            <li>
-              Integrated Amazon SNS for real-time alerts.
-            </li>
-          </ul>
-        </article>
+            <a href="mailto:surendrasomisetty18@gmail.com">
+              Email Me
+            </a>
 
-        <article>
-          <h3>
-            CI/CD Deployment Automation for Java Web Application
-          </h3>
+            <a
+              href="https://www.linkedin.com/in/somisetty-venkata-surendra-kumar/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn ↗
+            </a>
 
-          <p>
-            Git • GitHub • Jenkins • Maven • Docker
-          </p>
+            <a
+              href="https://github.com/surendra-kumar-07"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
 
-          <ul>
-            <li>
-              Designed an end-to-end Jenkins CI/CD pipeline.
-            </li>
+          </div>
 
-            <li>
-              Configured GitHub webhooks to automatically trigger
-              builds on every push.
-            </li>
+        </div>
 
-            <li>
-              Automated build, test and packaging stages with Maven.
-            </li>
-
-            <li>
-              Containerized the application using Docker.
-            </li>
-          </ul>
-        </article>
-
-        <article>
-          <h3>Dockerized Web Application Deployment</h3>
-
-          <p>
-            Docker • Docker Hub • Linux • AWS EC2
-          </p>
-
-          <ul>
-            <li>
-              Containerized a web application using Docker.
-            </li>
-
-            <li>
-              Built and versioned custom Docker images and published
-              them to Docker Hub.
-            </li>
-
-            <li>
-              Deployed the application on an AWS EC2 instance.
-            </li>
-
-            <li>
-              Configured container networking between services.
-            </li>
-          </ul>
-        </article>
       </section>
 
-      <section>
-        <h2>Education</h2>
-
-        <h3>
-          Bachelor of Technology in Computer Science and Engineering
-        </h3>
-
-        <p>
-          Siddharth Institute of Engineering and Technology
-        </p>
-
-        <p>
-          Specialization: Cybersecurity, IoT & Blockchain Technology
-        </p>
-
-        <p>
-          Graduated: 2026 | CGPA: 8.2
-        </p>
-      </section>
-
-      <section>
-        <h2>Certifications</h2>
-
-        <ul>
-          <li>AWS Certified Cloud Practitioner — In Progress</li>
-          <li>SQL (Basic) — HackerRank</li>
-          <li>Operating System Fundamentals — NPTEL</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Achievements</h2>
-
-        <h3>🏆 Best Paper Award — ICICC-2026</h3>
-
-        <p>
-          Best Paper Award at the International Conference on
-          Innovative Computing and Communication for:
-        </p>
-
-        <p>
-          <strong>
-            "HealthGuard: A Collaborative Machine Learning Approach
-            to Secure Medical Information Across IoT-Driven
-            Healthcare Systems."
-          </strong>
-        </p>
-      </section>
-
-      <section>
-        <h2>Contact</h2>
-
-        <p>📍 Bengaluru, India</p>
-
-        <p>
-          📞 <a href="tel:+917095690017">+91-7095690017</a>
-        </p>
-
-        <p>
-          📧
-          <a href="mailto:surendrasomisetty18@gmail.com">
-            surendrasomisetty18@gmail.com
-          </a>
-        </p>
-
-        <p>
-          💼
-          <a
-            href="https://www.linkedin.com/in/somisetty-venkata-surendra-kumar-48b086320/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
-        </p>
-
-        <p>
-          💻
-          <a
-            href="https://github.com/surendra-kumar-07"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
-        </p>
-      </section>
+      {/* ================= FOOTER ================= */}
 
       <footer>
-        <p>
-          © 2026 Somisetty Venkata Surendra Kumar
-        </p>
+
+        <div>
+          © 2026 Surendra Somisetty
+        </div>
+
+        <div>
+          DevOps • AWS • CI/CD
+        </div>
+
       </footer>
+
     </main>
   );
 }
