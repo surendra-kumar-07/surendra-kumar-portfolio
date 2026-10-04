@@ -180,12 +180,13 @@ export default function Home() {
               >
                 View Projects
               </a>
+              <a 
+              href="Surendra_Resume_DevOps_Improved-1(4).pdf"
+              download="Surendra_DevOps_Resume.pdf">
+             <button>Download Resume</button>
+             </a>
 
-              <a
-                href="/resume.pdf"
-                download="Somisetty-Venkata-Surendra-Kumar-Resume.pdf"
-                className="rounded-lg border border-slate-700 px-6 py-3 font-semibold hover:border-cyan-400 hover:text-cyan-400"
-              >
+     
                 Download Resume
               </a>
 
