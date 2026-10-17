@@ -1166,7 +1166,7 @@ const portfolioMarkup = String.raw`<header>
 
 export default function Home() {
   useEffect(() => {
-    document.title = "Surendra Kumar | DevOps & Cloud Engineer";
+    document.title = "Somisetty Venkata Surendra Kumar | Aspiring DevOps & Cloud Engineer";
     const root = document.documentElement;
     const themeButton = document.getElementById("theme");
     const savedTheme = window.localStorage.getItem("portfolio-theme");
