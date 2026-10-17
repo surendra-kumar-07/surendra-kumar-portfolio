@@ -1,17 +1,8 @@
-<!DOCTYPE html><html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Surendra Kumar | DevOps & Cloud Engineer</title><meta
-name="description"
-content="Portfolio of Somisetty Venkata Surendra Kumar, a DevOps and Cloud Engineer skilled in AWS, Jenkins, Docker, Linux, Git, Terraform and CI/CD."
+"use client";
 
-«»
+import { useEffect } from "react";
 
-  <meta name="theme-color" content="#6c63ff">  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >  <style>
-    :root {
+const globalStyles = String.raw`:root {
       --bg: #ffffff;
       --text: #2e2e2e;
       --sub: #6b6b6b;
@@ -544,8 +535,9 @@ content="Portfolio of Somisetty Venkata Surendra Kumar, a DevOps and Cloud Engin
       * {
         transition: none !important;
       }
-    }
-  </style></head><body><header>
+    }`;
+
+const portfolioMarkup = String.raw`<header>
   <div class="wrap"><a class="logo" href="#top">
   &lt;<span>Surendra</span>/&gt;
 </a>
@@ -631,7 +623,7 @@ content="Portfolio of Somisetty Venkata Surendra Kumar, a DevOps and Cloud Engin
     <!-- View Resume Button -->
     <a
       class="btn alt"
-      href="Surendra_Kumar_DevOps_Resume.pdf"
+      href="/Surendra_Kumar_DevOps_Resume.pdf"
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -641,7 +633,7 @@ content="Portfolio of Somisetty Venkata Surendra Kumar, a DevOps and Cloud Engin
     <!-- Download Resume Button -->
     <a
       class="btn"
-      href="Surendra_Kumar_DevOps_Resume.pdf"
+      href="/Surendra_Kumar_DevOps_Resume.pdf"
       download="Surendra_Kumar_DevOps_Resume.pdf"
     >
       &#8595; Download Resume
@@ -1170,28 +1162,39 @@ content="Portfolio of Somisetty Venkata Surendra Kumar, a DevOps and Cloud Engin
 
 <footer>
   <div class="wrap">&copy; <span id="year"></span> Surendra Kumar. Built with HTML, CSS and JavaScript.</div>
-</footer>
+</footer>`;
 
-<script>
-  // Toggle between light and dark themes.
-  const themeButton = document.getElementById('theme');
-  const savedTheme = localStorage.getItem('portfolio-theme');
+export default function Home() {
+  useEffect(() => {
+    document.title = "Surendra Kumar | DevOps & Cloud Engineer";
+    const root = document.documentElement;
+    const themeButton = document.getElementById("theme");
+    const savedTheme = window.localStorage.getItem("portfolio-theme");
 
-  if (savedTheme === 'dark') {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    themeButton.textContent = '☀';
-  }
+    if (savedTheme === "dark") {
+      root.setAttribute("data-theme", "dark");
+      if (themeButton) themeButton.textContent = "☀";
+    }
 
-  themeButton.addEventListener('click', () => {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    const nextTheme = isDark ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', nextTheme);
-    localStorage.setItem('portfolio-theme', nextTheme);
-    themeButton.textContent = nextTheme === 'dark' ? '☀' : '☾';
-  });
+    const toggleTheme = () => {
+      const isDark = root.getAttribute("data-theme") === "dark";
+      const nextTheme = isDark ? "light" : "dark";
+      root.setAttribute("data-theme", nextTheme);
+      window.localStorage.setItem("portfolio-theme", nextTheme);
+      if (themeButton) themeButton.textContent = nextTheme === "dark" ? "☀" : "☾";
+    };
 
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+    themeButton?.addEventListener("click", toggleTheme);
+    const year = document.getElementById("year");
+    if (year) year.textContent = String(new Date().getFullYear());
 
-</body>
-</html>
+    return () => themeButton?.removeEventListener("click", toggleTheme);
+  }, []);
+
+  return (
+    <>
+      <style>{globalStyles}</style>
+      <div dangerouslySetInnerHTML={{ __html: portfolioMarkup }} />
+    </>
+  );
+}
