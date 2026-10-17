@@ -633,8 +633,8 @@ const portfolioMarkup = String.raw`<header>
     <!-- Download Resume Button -->
     <a
       class="btn"
-      href="/Surendra_Kumar_DevOps_Resume.pdf"
-      download="Surendra_Kumar_DevOps_Resume.pdf"
+      href="/SOMISETTY_VENKATA_SURENDRA_KUMAR_RESUME.pdf"
+      download="SOMISETTY_VENKATA_SURENDRA_KUMAR_RESUME.pdf"
     >
       &#8595; Download Resume
     </a>
