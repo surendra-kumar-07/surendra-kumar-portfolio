@@ -623,10 +623,12 @@ content="Portfolio of Somisetty Venkata Surendra Kumar, a DevOps and Cloud Engin
 
   <div class="btns">
 
+    <!-- Contact Me Button -->
     <a class="btn" href="#contact">
       Contact Me
     </a>
 
+    <!-- View Resume Button -->
     <a
       class="btn alt"
       href="Surendra_Kumar_DevOps_Resume.pdf"
@@ -634,6 +636,15 @@ content="Portfolio of Somisetty Venkata Surendra Kumar, a DevOps and Cloud Engin
       rel="noopener noreferrer"
     >
       View Resume
+    </a>
+
+    <!-- Download Resume Button -->
+    <a
+      class="btn"
+      href="Surendra_Kumar_DevOps_Resume.pdf"
+      download="Surendra_Kumar_DevOps_Resume.pdf"
+    >
+      &#8595; Download Resume
     </a>
 
   </div>
@@ -1115,4 +1126,72 @@ content="Portfolio of Somisetty Venkata Surendra Kumar, a DevOps and Cloud Engin
     </p>
 
     <a
-      href="https://link.springer.com/chapter/10.1007/978-3-032-30
+      href="https://link.springer.com/chapter/10.1007/978-3-032-30008-9_35"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Read the Paper
+    </a>
+
+  </div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="title">Contact</h2>
+  <p class="sub">Have an opportunity or a project in mind? Feel free to get in touch.</p>
+
+  <div class="contact">
+    <div>
+      <h2>Let's connect.</h2>
+      <p>I'm interested in entry-level Cloud and DevOps opportunities, internships, and learning from real-world engineering teams.</p>
+    </div>
+
+    <div class="lines">
+      <a href="mailto:surendrasomisetty18@gmail.com">
+        Email
+        <small>surendrasomisetty18@gmail.com</small>
+      </a>
+      <a href="https://www.linkedin.com/in/somisetty-venkata-surendra-kumar-48b086320/" target="_blank" rel="noopener noreferrer">
+        LinkedIn
+        <small>Connect with me professionally</small>
+      </a>
+      <a href="https://github.com/surendra-kumar-07" target="_blank" rel="noopener noreferrer">
+        GitHub
+        <small>Explore my projects and repositories</small>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">&copy; <span id="year"></span> Surendra Kumar. Built with HTML, CSS and JavaScript.</div>
+</footer>
+
+<script>
+  // Toggle between light and dark themes.
+  const themeButton = document.getElementById('theme');
+  const savedTheme = localStorage.getItem('portfolio-theme');
+
+  if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeButton.textContent = '☀';
+  }
+
+  themeButton.addEventListener('click', () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const nextTheme = isDark ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', nextTheme);
+    localStorage.setItem('portfolio-theme', nextTheme);
+    themeButton.textContent = nextTheme === 'dark' ? '☀' : '☾';
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
