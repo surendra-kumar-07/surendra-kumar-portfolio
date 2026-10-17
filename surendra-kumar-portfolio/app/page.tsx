@@ -539,7 +539,7 @@ const globalStyles = String.raw`:root {
 
 const portfolioMarkup = String.raw`<header>
   <div class="wrap"><a class="logo" href="#top">
-  &lt;<span>Surendra</span>/&gt;
+  &lt;<span>S.V.Surendra Kumar</span>/&gt;
 </a>
 
 <nav>
@@ -563,11 +563,11 @@ const portfolioMarkup = String.raw`<header>
 </header><main class="wrap" id="top">  <!-- HERO -->  <section class="hero"><div>
 
   <h1>
-    Hi, I'm <em>Surendra</em> 👋
+    Hi, I'm <em>Somisetty Venkata Surendra Kumar</em> 👋
   </h1>
 
   <p>
-    A DevOps and Cloud Engineer focused on AWS, CI/CD automation,
+    Aspiring  DevOps and Cloud Engineer focused on AWS, CI/CD automation,
     Docker, Jenkins, Linux and cloud infrastructure.
     Based in Bengaluru, India.
   </p>
@@ -623,7 +623,7 @@ const portfolioMarkup = String.raw`<header>
     <!-- View Resume Button -->
     <a
       class="btn alt"
-      href="/Surendra_Kumar_DevOps_Resume.pdf"
+      href="/SOMISETTY_VENKATA_SURENDRA_KUMAR_RESUME.pdf"
       target="_blank"
       rel="noopener noreferrer"
     >
