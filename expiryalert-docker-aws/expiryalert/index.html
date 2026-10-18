@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f766e">
+  <title>ExpiryAlert | Expiry Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-icon">✓</span><div><strong>ExpiryAlert</strong><small>Know before it expires</small></div></div>
+    <button id="exportBtn" class="button secondary">Export CSV</button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div><p class="eyebrow">SMART INVENTORY TRACKER</p><h1>Stay ahead of expiry dates.</h1>
+        <p class="hero-copy">Track food, medicines and household products in one simple dashboard.</p></div>
+      <div class="hero-badge"><span>▦</span><div><b id="todayLabel">Today</b><small>Inventory overview</small></div></div>
+    </section>
+
+    <section class="stats" aria-label="Inventory summary">
+      <article class="stat-card"><span class="stat-icon teal">▤</span><div><p>Total products</p><strong id="totalCount">0</strong></div></article>
+      <article class="stat-card"><span class="stat-icon amber">◷</span><div><p>Expiring in 7 days</p><strong id="soonCount">0</strong></div></article>
+      <article class="stat-card"><span class="stat-icon red">!</span><div><p>Expired</p><strong id="expiredCount">0</strong></div></article>
+      <article class="stat-card"><span class="stat-icon purple">₹</span><div><p>Value at risk</p><strong id="riskValue">₹0</strong></div></article>
+    </section>
+
+    <section class="content-grid">
+      <section class="panel form-panel">
+        <div class="panel-heading"><div><p class="eyebrow">INVENTORY</p><h2 id="formTitle">Add a product</h2></div><span class="plus">＋</span></div>
+        <form id="productForm">
+          <input type="hidden" id="productId">
+          <label for="name">Product name <span>*</span></label>
+          <input id="name" name="name" maxlength="80" placeholder="e.g. Milk, Vitamin tablets" required>
+          <div class="form-row">
+            <div><label for="category">Category <span>*</span></label>
+              <select id="category" required><option value="Food">Food</option><option value="Medicine">Medicine</option><option value="Household">Household</option><option value="Personal care">Personal care</option><option value="Other">Other</option></select></div>
+            <div><label for="expiryDate">Expiry date <span>*</span></label><input id="expiryDate" type="date" required></div>
+          </div>
+          <div class="form-row">
+            <div><label for="quantity">Quantity <span>*</span></label><input id="quantity" type="number" min="1" max="100000" step="1" value="1" required></div>
+            <div><label for="value">Unit value (₹)</label><input id="value" type="number" min="0" max="100000000" step="0.01" value="0"></div>
+          </div>
+          <label for="notes">Notes <small>(optional)</small></label>
+          <textarea id="notes" rows="3" maxlength="500" placeholder="Storage details or other notes"></textarea>
+          <p id="formError" class="form-error" role="alert"></p>
+          <div class="form-actions"><button class="button primary" type="submit" id="saveBtn">＋ Add product</button><button class="button secondary hidden" type="button" id="cancelEdit">Cancel</button></div>
+        </form>
+        <p class="privacy-note">🔒 Your inventory is saved in this browser on this device.</p>
+      </section>
+
+      <section class="panel inventory-panel">
+        <div class="inventory-heading"><div><p class="eyebrow">YOUR STOCK</p><h2>Product inventory</h2></div><span class="count-pill" id="visibleCount">0 items</span></div>
+        <div class="filters"><label class="search-box"><span>⌕</span><input id="search" placeholder="Search products..." aria-label="Search products"></label>
+          <select id="statusFilter" aria-label="Filter by expiry status"><option value="all">All statuses</option><option value="expired">Expired</option><option value="soon">Expiring soon</option><option value="safe">Not soon</option></select>
+        </div>
+        <div id="productList" class="product-list"></div>
+        <div id="emptyState" class="empty-state"><div>▤</div><h3>No products found</h3><p>Add a product or change your search filters.</p></div>
+      </section>
+    </section>
+
+    <section class="safety-banner"><div class="safety-symbol">i</div><div><strong>Use expiry information responsibly</strong><p>Expiry dates do not guarantee that an item is safe before that date. Follow product labels and professional guidance. Never change medicine doses based on this app.</p></div></section>
+    <footer>ExpiryAlert · A simple browser-based inventory tracker · <span id="year"></span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
