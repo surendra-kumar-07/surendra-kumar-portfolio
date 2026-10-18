@@ -1,0 +1,7 @@
+services:
+  expiryalert:
+    build: .
+    container_name: expiryalert
+    ports:
+      - "8080:80"
+    restart: unless-stopped
