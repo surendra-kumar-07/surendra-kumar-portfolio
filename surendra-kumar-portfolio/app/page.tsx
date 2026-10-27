@@ -620,16 +620,16 @@ const portfolioMarkup = String.raw`<header>
       Contact Me
     </a>
 
+
     <!-- View Resume Button -->
     <a
-      class="btn alt"
-      href="/"
-      target="_blank"
-      rel="noopener noreferrer"
+    class="btn alt"
+    href="/Surendra_Kumar_DevOps_Resume.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
     >
-      View Resume
+    View Resume
     </a>
-
     <!-- Download Resume Button -->
     <a
       class="btn"
