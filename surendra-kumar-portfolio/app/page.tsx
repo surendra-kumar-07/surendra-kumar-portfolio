@@ -623,7 +623,7 @@ const portfolioMarkup = String.raw`<header>
     <!-- View Resume Button -->
     <a
       class="btn alt"
-      href="/SOMISETTY_VENKATA_SURENDRA_KUMAR_RESUME.pdf"
+      href="/"
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -633,8 +633,8 @@ const portfolioMarkup = String.raw`<header>
     <!-- Download Resume Button -->
     <a
       class="btn"
-      href="/SOMISETTY_VENKATA_SURENDRA_KUMAR_RESUME.pdf"
-      download="SOMISETTY_VENKATA_SURENDRA_KUMAR_RESUME.pdf"
+      href="/surendra_Resume (5).pdf"
+      download="surendra_Resume (5).pdf"
     >
       &#8595; Download Resume
     </a>
@@ -1002,96 +1002,98 @@ const portfolioMarkup = String.raw`<header>
 
 </div>
 
-  </section>  <!-- PROJECTS -->  <section id="projects"><h2 class="title">
-  Projects
-</h2>
+  </section>  <!-- PROJECTS -->
+<section id="projects">
+  <h2 class="title">Projects</h2>
 
-<p class="sub">
-  Hands-on projects focused on AWS, Docker, CI/CD and cloud automation.
-</p>
+  <p class="sub">
+    Practical projects demonstrating CI/CD automation, infrastructure as code,
+    container orchestration and AWS monitoring.
+  </p>
 
-<div class="cards3">
+  <div class="cards3">
 
-  <div class="card proj">
+    <div class="card proj">
+      <h3>End-to-End CI/CD Pipeline with Docker and Kubernetes</h3>
 
-    <h3>
-      Dockerized Web Application
-    </h3>
+      <p>
+        Designed a CI/CD workflow to automate application testing, Docker image
+        builds, vulnerability scanning and Kubernetes deployment. Used
+        container image scanning and deployment health checks to support safer,
+        more reliable releases.
+      </p>
 
-    <p>
-      Containerized a web application using Docker,
-      created custom images and deployed the application
-      using container-based workflows.
-    </p>
+      <div class="chips">
+        <span>GitHub Actions</span>
+        <span>Docker</span>
+        <span>Kubernetes</span>
+        <span>Trivy</span>
+        <span>SonarCloud</span>
+      </div>
 
-    <div class="chips">
-      <span>Docker</span>
-      <span>Linux</span>
-      <span>GitHub</span>
+      <p>
+        <strong>Highlights:</strong> Automated build and deployment stages,
+        multi-stage Docker builds, vulnerability scanning, rolling updates,
+        readiness/liveness probes and GitHub Secrets.
+      </p>
+    </div>
+
+    <div class="card proj">
+      <h3>Three-Tier AWS Architecture Using Terraform</h3>
+
+      <p>
+        Planned an AWS three-tier architecture across multiple Availability
+        Zones using Terraform. Separated public and private resources and
+        configured load balancing, auto scaling and a managed database layer.
+      </p>
+
+      <div class="chips">
+        <span>AWS</span>
+        <span>Terraform</span>
+        <span>VPC</span>
+        <span>EC2</span>
+        <span>ALB</span>
+        <span>RDS</span>
+        <span>Auto Scaling</span>
+      </div>
+
+      <p>
+        <strong>Highlights:</strong> Reusable Terraform modules, public/private
+        subnets, security groups, S3 remote state and separate development and
+        production configurations.
+      </p>
+    </div>
+
+    <div class="card proj">
+      <h3>AWS Infrastructure Monitoring and Alerting System</h3>
+
+      <p>
+        Set up infrastructure monitoring with Amazon CloudWatch and configured
+        alarms to detect metric threshold breaches. Integrated Amazon SNS to
+        send notifications and used Linux/Bash scripts to support routine
+        monitoring and administration.
+      </p>
+
+      <div class="chips">
+        <span>Amazon CloudWatch</span>
+        <span>Amazon SNS</span>
+        <span>EC2</span>
+        <span>IAM</span>
+        <span>Linux</span>
+        <span>Bash</span>
+      </div>
+
+      <p>
+        <strong>Highlights:</strong> CloudWatch metrics and alarms, SNS
+        notifications, threshold-based alerting and Bash-based operational
+        checks.
+      </p>
     </div>
 
   </div>
+</section>
 
-  <div class="card proj">
-
-    <h3>
-      S3 Static Website Hosting
-    </h3>
-
-    <p>
-      Hosted a static website using Amazon S3 and configured
-      bucket access policies with IAM-based permissions.
-    </p>
-
-    <div class="chips">
-      <span>AWS S3</span>
-      <span>IAM</span>
-      <span>Cloud</span>
-    </div>
-
-  </div>
-
-  <div class="card proj">
-
-    <h3>
-      S3 Event-Driven Alarm System
-    </h3>
-
-    <p>
-      Built an event-driven monitoring workflow using S3,
-      CloudWatch and SNS for automated alerts and notifications.
-    </p>
-
-    <div class="chips">
-      <span>S3</span>
-      <span>CloudWatch</span>
-      <span>SNS</span>
-    </div>
-
-  </div>
-
-  <div class="card proj">
-
-    <h3>
-      Serverless Image Compression
-    </h3>
-
-    <p>
-      Created a serverless image compression workflow using
-      Amazon S3 events and AWS Lambda with Python and Pillow.
-    </p>
-
-    <div class="chips">
-      <span>AWS Lambda</span>
-      <span>Python</span>
-      <span>S3</span>
-    </div>
-
-  </div>
-
-</div>
-
-  </section>  <!-- ACHIEVEMENTS -->  <section id="achievements"><h2 class="title">
+<!-- ACHIEVEMENTS -->  <section id="achievements"><h2 class="title">
   Achievements
 </h2>
 
